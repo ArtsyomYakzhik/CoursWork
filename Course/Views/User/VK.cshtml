@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "VK";
+}
+
+<h2>VK</h2>
+<form method="put" action="SetGroups">
+	@foreach (var element in ViewBag.groups)
+	{
+		<input type="checkbox" name="@element.Value" value="@element.Key" />@element.Value
+
+
+	}
+	<input type="submit" name="Submit" />
+</form>
+

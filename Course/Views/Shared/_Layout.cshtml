@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<title>@ViewBag.Title</title>
+	<link rel="stylesheet" href="@Url.Content("Site.css")">
+</head>
+
+<body>
+	<nav style="text-align:center;padding-bottom:10px;background-color:#CCCCCC;">
+			@Html.ActionLink("Sign in", "Signin", "Home")
+			@Html.ActionLink("Sign up", "Signup", "Home")
+	</nav>
+	@RenderBody()
+</body>
+</html>
