@@ -2,23 +2,48 @@
 @{
     ViewBag.Title = "VK";
 }
+<style>
+	table {
+		text-align: justify;
+		padding-left: 25%;
+		padding-right: 25%;
+	}
+</style>
 
 <h2>VK</h2>
-@Html.ActionLink("SubscriveToGroup", "SubscribeToVkGroup");
-@if(ViewBag.news != null)
-{
-	foreach (var element in ViewBag.news)
+@Html.ActionLink("SubscriveToGroup", "SubscribeToVkGroup")
+<table>
+	@if (ViewBag.news != null)
 	{
-		@element.groupName
-		<br />
-		@element.postText
-	    <br />
-		if (element.attachedPhoto.Count != 0)
-		{
-		<img src="@element.attachedPhoto[0]" />
-	    }
-		<br />
 
+		foreach (var element in ViewBag.news)
+		{
+			<tr>
+				<td>
+					@element.groupName
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					@element.postText
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					@if (element.attachedPhoto.Count != 0)
+					{
+						foreach (var photo in element.attachedPhoto)
+						{
+							<img src="@photo" />
+						}
+					}
+
+					<br />
+				</td>
+			</tr>
+		}
 	}
-}
+</table>
 

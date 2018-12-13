@@ -25,7 +25,7 @@ namespace Course.Controllers
         public ActionResult VK(string code)
         {
             accessTokens.EditAccessTokensValue(accessTokens.FindAccessTokensByLogin(Convert.ToString(Session["userid"])).Id
-                , vk.getAccessTokenJSON(code), null, null);
+                , vk.getAccessTokenJSON(code));
             return View();
         }
 
@@ -54,5 +54,10 @@ namespace Course.Controllers
             return RedirectToActionPermanent("VKAuth");
         }
         
+        public ActionResult Logout()
+        {
+            Session["userid"] = null;
+            return RedirectToActionPermanent("Signin", "Home");
+        }
     }
 }

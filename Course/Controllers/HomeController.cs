@@ -49,7 +49,7 @@ namespace Course.Controllers
                 return RedirectToActionPermanent("Main", "User");
             }
             else
-                return RedirectToActionPermanent("Signup");
+                return RedirectToActionPermanent("Signin");
         }
     }
 }
