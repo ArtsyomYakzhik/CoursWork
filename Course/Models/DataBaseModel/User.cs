@@ -15,6 +15,7 @@ namespace CourseWork.Models.DataBaseModel
 
         public string Password { get; set; }
 
+        [InverseProperty("User")]
         public ICollection<AccessTokens> AccessTokensTable { get; set; }
     }
 }

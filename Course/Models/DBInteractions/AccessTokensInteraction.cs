@@ -13,18 +13,26 @@ namespace Course.Models.Interactions
 
         public List<AccessTokens> GetAccessTokensList()
         {
-            return dBContext.AccessTokens.ToList();
+            return dBContext.AccessTokenses.ToList();
+        }
+
+        public void SubcribeToGroup(string login, string goupId)
+        {
+            FindAccessTokensByLogin(login).vkGroups += goupId + " ";
+            SaveChanges();
         }
 
         public void AddNewAccessTokens(string login)
         {
-            dBContext.AccessTokens.Add(new AccessTokens() { UserId = login});
+            dBContext.AccessTokenses.Add(new AccessTokens() { UserId = login});
+            SaveChanges();
+            dBContext.AccessTokenses.Where(c => (c.UserId == login)).Single().vkGroups = "";
             SaveChanges();
         }
 
         public void DeleteAccessTokens(string accessTokensId)
         {
-            dBContext.AccessTokens.Remove(FindAccessTokensById(accessTokensId));
+            dBContext.AccessTokenses.Remove(FindAccessTokensById(accessTokensId));
             SaveChanges();
         }
 
@@ -53,11 +61,11 @@ namespace Course.Models.Interactions
 
         public AccessTokens FindAccessTokensById(string accessTokensId)
         {
-            return dBContext.AccessTokens.Find(accessTokensId);
+            return dBContext.AccessTokenses.Find(accessTokensId);
         }
         public AccessTokens FindAccessTokensByLogin(string login)
         {
-            return dBContext.AccessTokens.Single();
+            return dBContext.AccessTokenses.Single();
         }
     }
 }

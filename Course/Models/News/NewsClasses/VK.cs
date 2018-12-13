@@ -40,7 +40,7 @@ namespace Course.Models.News.NewsClasses
             return result;
        }
 
-        public Dictionary<string, string> getUserGroups(string accessToken)
+        public Dictionary<string, string> getVKUserGroups(string accessToken)
         {
             Leaf.xNet.HttpResponse groupsResponse;
             string groupSearchUri = String.Format("https://api.vk.com/method/groups.get?extended=1&access_token={0}&v=5.92", accessToken);

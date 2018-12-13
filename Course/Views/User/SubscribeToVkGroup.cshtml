@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "SubscribeToVkGroup";
+}
+
+<h2>SubscribeToVkGroup</h2>
+<form method="post" action="SetGroups">
+	@foreach (var element in ViewBag.groups)
+	{
+		<input type="checkbox" name="@element.Key" value="@element.Key" />@element.Value
+		<br>
+	}
+	<input type="submit" name="Submit" />
+</form>

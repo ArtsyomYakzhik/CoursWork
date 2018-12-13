@@ -11,7 +11,7 @@ namespace CourseWork.Models.DataBaseModel
     public class DBObject : DbContext
     {
         public DbSet<User> Users { get; set; }
-        public DbSet<AccessTokens> AccessTokens {get; set;}
+        public DbSet<AccessTokens> AccessTokenses {get; set;}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
