@@ -1,0 +1,6 @@
+packages/*
+.vs/*
+Course/favicon.ico
+Course/Scripts
+Course/obj
+Course/bin
