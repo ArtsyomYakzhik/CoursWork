@@ -35,9 +35,18 @@ namespace Course.Models
             getDeserializeObject(json);
             post.groupName = Convert.ToString(jsonDeserialize["response"]["groups"][0]["name"]);
             post.postText = Convert.ToString(jsonDeserialize["response"]["items"][0]["text"]);
-            foreach(var element in jsonDeserialize["response"]["items"][0]["attachments"])
+            try
             {
-               // post.attachedPhoto.Add(Convert.ToString(element["photo"]["sizes"][2]["url"]));
+                if (jsonDeserialize["response"]["items"][0]["attachments"] != null)
+                    foreach (var element in jsonDeserialize["response"]["items"][0]["attachments"])
+                    {
+                        post.attachedPhoto.Add(Convert.ToString(element["photo"]["sizes"][2]["url"]));
+                    }
+            }
+
+            catch(Exception)
+            {
+                return post;
             }
             return post;
         }
@@ -49,7 +58,9 @@ namespace Course.Models
 
         public static List<string> getGroupsList(string groups)
         {
-            return groups.Split(' ').ToList();
+            List<string> result = groups.Split(' ').ToList();
+            result.Remove("");
+            return result;
         }
     }
 }

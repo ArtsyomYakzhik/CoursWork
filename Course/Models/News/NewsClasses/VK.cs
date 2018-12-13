@@ -60,7 +60,7 @@ namespace Course.Models.News.NewsClasses
             {
                 foreach(var element in groupList)
                 {
-                    getVKPost(accessToken, element, i);
+                    news.Add(getVKPost(accessToken, element, i));
                 }
             }
             return news;

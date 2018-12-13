@@ -16,9 +16,10 @@ namespace Course.Models.Interactions
             return dBContext.AccessTokenses.ToList();
         }
 
-        public void SubcribeToGroup(string login, string goupId)
+        public void SubcribeToGroup(string login, string groupId)
         {
-            FindAccessTokensByLogin(login).vkGroups += goupId + " ";
+            FindAccessTokensByLogin(login).vkGroups.Replace(groupId, "");
+            FindAccessTokensByLogin(login).vkGroups += groupId + " ";
             SaveChanges();
         }
 

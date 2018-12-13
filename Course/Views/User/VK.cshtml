@@ -13,6 +13,12 @@
 		<br />
 		@element.postText
 	    <br />
+		if (element.attachedPhoto.Count != 0)
+		{
+		<img src="@element.attachedPhoto[0]" />
+	    }
+		<br />
+
 	}
 }
 
