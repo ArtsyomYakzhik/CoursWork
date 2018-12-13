@@ -4,14 +4,16 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta charset="utf-8" />
 	<title>@ViewBag.Title</title>
-	<link rel="stylesheet" href="@Url.Content("Site.css")">
+	<link rel="stylesheet" href="~/Content/bootstrap.css">
 </head>
 
-<body>
-	<nav style="text-align:right;padding-bottom:10px;background-color:#CCCCCC;">
+<body style="background-color:#EEEEEE;">
+	<nav style="text-align:right;padding-bottom:10px;padding-top:10px;padding-right:5%;background-color:#CCCCCC;">
 			@Html.ActionLink("Sign in", "Signin", "Home")
 			@Html.ActionLink("Sign up", "Signup", "Home")
 	</nav>
-	@RenderBody()
+	<div style="padding-left:45%;padding-right:50%;">
+		@RenderBody()
+	</div>
 </body>
 </html>

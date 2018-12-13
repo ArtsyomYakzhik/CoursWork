@@ -41,21 +41,18 @@ namespace Course.Models.Interactions
         {
             if (vk != null)
             {
-                FindAccessTokensByLogin(accessTokensId).vkAT = vk[0];
-
-                FindAccessTokensByLogin(accessTokensId).vkId = vk[1];
+                FindAccessTokensById(accessTokensId).vkAT = vk[0];
+                FindAccessTokensById(accessTokensId).vkId = vk[1];
             }
             if (youtube != null)
             {
-                FindAccessTokensByLogin(accessTokensId).youtubeAT = youtube[0];
-
-                FindAccessTokensByLogin(accessTokensId).youtubeId = youtube[1];
+                FindAccessTokensById(accessTokensId).youtubeAT = youtube[0];
+                FindAccessTokensById(accessTokensId).youtubeId = youtube[1];
             }
             if (instagram != null)
             {
-                FindAccessTokensByLogin(accessTokensId).instagramAT = instagram[0];
-
-                FindAccessTokensByLogin(accessTokensId).instagramId = instagram[1];
+                FindAccessTokensById(accessTokensId).instagramAT = instagram[0];
+                FindAccessTokensById(accessTokensId).instagramId = instagram[1];
             }
             SaveChanges();
         }
@@ -66,7 +63,15 @@ namespace Course.Models.Interactions
         }
         public AccessTokens FindAccessTokensByLogin(string login)
         {
-            return dBContext.AccessTokenses.Single();
+            AccessTokens result = null;
+            foreach(var element in dBContext.AccessTokenses)
+            {
+                if(element.UserId == login)
+                {
+                    result = element;
+                }
+            }
+            return result;
         }
     }
 }
