@@ -31,6 +31,8 @@ namespace Course.Controllers
 
         public ActionResult VKAuth()
         {
+            ViewBag.news = vk.getVKNews(accessTokens.FindAccessTokensByLogin(Session["userid"].ToString()).vkAT
+                , accessTokens.FindAccessTokensByLogin(Session["userid"].ToString()).vkGroups);
             return View("VK");
         }
 

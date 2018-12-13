@@ -51,5 +51,34 @@ namespace Course.Models.News.NewsClasses
                 return JSONSerializer.getGroupsIdAndNameDictionary(groupsResponse.ToString());
             }
         }
+
+        public List<Post> getVKNews(string accessToken ,string groupString)
+        {
+            List<Post> news = new List<Post>();
+            List<string> groupList = JSONSerializer.getGroupsList(groupString);
+            for(int i = 0; i < 10; i++)
+            {
+                foreach(var element in groupList)
+                {
+                    getVKPost(accessToken, element, i);
+                }
+            }
+            return news;
+        }
+
+        public Post getVKPost(string accessToken ,string groupId, int numberOfPost)
+        {
+            Leaf.xNet.HttpResponse postResponse = null;
+            Post result = new Post();
+            using (var postRequest = new Leaf.xNet.HttpRequest())
+            {
+                postRequest.UserAgent = Http.ChromeUserAgent();
+                postResponse = postRequest.Get(
+                    String.Format("https://api.vk.com/method/wall.get?extended=1&owner_id=-{0}&count=1&offset={1}&access_token={2}&v={3}"
+                    , groupId, numberOfPost, accessToken, version));
+                result = JSONSerializer.getPost(postResponse.ToString());
+                return result;
+            }
+        }
     }
 }

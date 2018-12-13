@@ -247,6 +247,7 @@
     <Compile Include="Models\News\NewsClasses\VK.cs" />
     <Compile Include="Models\News\SocialNews.cs" />
     <Compile Include="Models\DataBaseModel\User.cs" />
+    <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -29,9 +29,27 @@ namespace Course.Models
             return resultDictionary;
         }
 
+        public static Post getPost(string json)
+        {
+            Post post = new Post();
+            getDeserializeObject(json);
+            post.groupName = Convert.ToString(jsonDeserialize["response"]["groups"][0]["name"]);
+            post.postText = Convert.ToString(jsonDeserialize["response"]["items"][0]["text"]);
+            foreach(var element in jsonDeserialize["response"]["items"][0]["attachments"])
+            {
+               // post.attachedPhoto.Add(Convert.ToString(element["photo"]["sizes"][2]["url"]));
+            }
+            return post;
+        }
+
         private static void getDeserializeObject(string json)
         {
             jsonDeserialize = jsonSerializer.Deserialize<dynamic>(json);
+        }
+
+        public static List<string> getGroupsList(string groups)
+        {
+            return groups.Split(' ').ToList();
         }
     }
 }

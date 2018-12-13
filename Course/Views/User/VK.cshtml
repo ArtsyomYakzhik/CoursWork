@@ -5,4 +5,14 @@
 
 <h2>VK</h2>
 @Html.ActionLink("SubscriveToGroup", "SubscribeToVkGroup");
+@if(ViewBag.news != null)
+{
+	foreach (var element in ViewBag.news)
+	{
+		@element.groupName
+		<br />
+		@element.postText
+	    <br />
+	}
+}
 
