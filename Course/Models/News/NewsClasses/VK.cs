@@ -9,17 +9,17 @@ namespace Course.Models.News.NewsClasses
 {
     public class VK: SocialNews
     {
-        public const string version = "5.92";
+        private const string version = "5.92";
         private const string permission = "73730";
-        public string oAuthCodeUri;
-        public string oAuthATUri;
-        public string userGroupsIdUri;
+        private string oAuthCodeUri;
+        private string oAuthATUri;
+        private string userGroupsIdUri;
 
-        public VK()
+        public VK():base()
         {
             applicationSecret = "myAB2FFGPRwGyqshDA1d";
             applicationId = "6727881";
-            redirectUri = "http://localhost:60914/User/VK";
+            redirectUri = String.Format("{0}/User/VK", serverUri);
             oAuthCodeUri = String.Format("https://oauth.vk.com/authorize?client_id={0}&redirect_uri={1}&display=page&scope={2}&v={3}"
                 , applicationId, redirectUri, permission, version);
             oAuthATUri = String.Format("https://oauth.vk.com/access_token?client_id={0}&client_secret={1}&redirect_uri={2}&code="

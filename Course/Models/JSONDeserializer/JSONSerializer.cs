@@ -34,19 +34,18 @@ namespace Course.Models
             Post post = new Post();
             getDeserializeObject(json);
             post.groupName = Convert.ToString(jsonDeserialize["response"]["groups"][0]["name"]);
-            post.postText = Convert.ToString(jsonDeserialize["response"]["items"][0]["text"]);
-            try
+            foreach(var element in jsonDeserialize["response"]["items"][0])
             {
-                if (jsonDeserialize["response"]["items"][0]["attachments"] != null)
-                    foreach (var element in jsonDeserialize["response"]["items"][0]["attachments"])
+                if (element.Key == "text")
+                    post.postText = element.Value;
+                if (element.Key == "attachments")
+                {
+                    foreach (var subElement in element.Value)
                     {
-                        post.attachedPhoto.Add(Convert.ToString(element["photo"]["sizes"][2]["url"]));
+                        if(subElement["type"] == "photo")
+                            post.attachedPhoto.Add(subElement["photo"]["sizes"][3]["url"]);
                     }
-            }
-
-            catch(Exception)
-            {
-                return post;
+                }
             }
             return post;
         }

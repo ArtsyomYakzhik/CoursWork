@@ -7,9 +7,15 @@ namespace Course.Models.News
 {
     abstract public class SocialNews
     {
-        public string applicationId { get; set; }
-        public string applicationSecret { get; set; }
-        public string redirectUri { get; set; }
+        protected string applicationId;
+        protected string applicationSecret;
+        protected string redirectUri;
+        protected string serverUri;
 
+        public SocialNews()
+        {
+            serverUri = "http://" + HttpContext.Current.Request.Url.Host +
+                ":" + HttpContext.Current.Request.Url.Port;
+        }
     }
 }

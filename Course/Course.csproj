@@ -243,7 +243,7 @@
     <Compile Include="Models\DBInteractions\UserInteraction.cs" />
     <Compile Include="Models\DataBaseModel\AccessTokens.cs" />
     <Compile Include="Models\DataBaseModel\DBObject.cs" />
-    <Compile Include="Models\JSONSerializer.cs" />
+    <Compile Include="Models\JSONDeserializer\JSONSerializer.cs" />
     <Compile Include="Models\News\NewsClasses\Instagram.cs" />
     <Compile Include="Models\News\NewsClasses\VK.cs" />
     <Compile Include="Models\News\SocialNews.cs" />

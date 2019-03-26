@@ -15,6 +15,11 @@ namespace Course.Controllers
         AccessTokensInteraction accessTokens = new AccessTokensInteraction();
         private VK vk = new VK();
 
+        public UserController()
+        {
+
+        }
+
         public ActionResult Main()
         {
             accessTokens.FindAccessTokensByLogin(Convert.ToString(Session["userid"]));
@@ -24,7 +29,8 @@ namespace Course.Controllers
 
         public ActionResult VK(string code)
         {
-            accessTokens.EditAccessTokensValue(accessTokens.FindAccessTokensByLogin(Convert.ToString(Session["userid"])).Id
+            accessTokens.EditAccessTokensValue(
+                accessTokens.FindAccessTokensByLogin(Convert.ToString(Session["userid"])).Id
                 , vk.getAccessTokenJSON(code));
             return View();
         }
