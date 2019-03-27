@@ -17,5 +17,7 @@ namespace Course.Models.News
             serverUri = "http://" + HttpContext.Current.Request.Url.Host +
                 ":" + HttpContext.Current.Request.Url.Port;
         }
+
+        abstract public string[] getAccessTokenJSON(string code);
     }
 }
