@@ -11,7 +11,7 @@ namespace Course.Models.News.NewsClasses
     {
         private const string version = "5.92";
         private const string permission = "73730";
-        private string oAuthCodeUri;
+        public string oAuthCodeUri { get; set; }
         private string oAuthATUri;
         private string userGroupsIdUri;
 
@@ -26,7 +26,7 @@ namespace Course.Models.News.NewsClasses
                 , applicationId, applicationSecret, redirectUri);
         }
         
-        public string[] getAccessTokenJSON(string code)
+        override public string[] getAccessTokenJSON(string code)
         {
             Leaf.xNet.HttpResponse tokenResponse = null;
             string[] result = new string[2];

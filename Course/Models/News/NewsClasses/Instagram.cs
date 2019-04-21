@@ -21,7 +21,7 @@ namespace Course.Models.News.NewsClasses
             oAuthATUri = "https://api.instagram.com/oauth/access_token";
         }
 
-        public string[] getAccessTokenJSON(string code)
+        override public string[] getAccessTokenJSON(string code)
         {
             Leaf.xNet.HttpResponse tokenResponse = null;
             string[] result = new string[2];
