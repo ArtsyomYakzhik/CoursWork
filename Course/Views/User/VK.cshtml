@@ -4,14 +4,14 @@
 
 				ViewBag.Title = "VK";
 }
-<h2>VK</h2>
+<h2 style="padding:0 50% 0 45%;">VK</h2>
 @Html.ActionLink("SubscriveToGroup", "SubscribeToVkGroup")	
 @if (ViewBag.news != null)
 {
 
 	foreach (var element in ViewBag.news)
 	{
-		<div class="card" style="width: 30rem;">
+		<div class="card" style="width:30rem;padding-bottom:5%;margin:auto;">
 
 			<h5 class="card-title">
 				@element.groupName
