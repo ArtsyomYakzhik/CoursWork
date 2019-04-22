@@ -4,7 +4,7 @@
 }
 
 <h2>SubscribeToVkGroup</h2>
-<form method="post" action="SetGroups">
+<form method="post" action="SetGroups" style="padding:0 50% 0 45%;">
 	@foreach (var element in ViewBag.groups)
 	{
 		<input type="checkbox" name="@element.Key" value="@element.Key" />@element.Value
