@@ -33,7 +33,13 @@ namespace Course.Models
         {
             Post post = new Post();
             getDeserializeObject(json);
-            post.groupName = Convert.ToString(jsonDeserialize["response"]["groups"][0]["name"]);
+            foreach (var elements in jsonDeserialize["response"])
+            {
+                if(elements.Key == "groups")
+                foreach (var element in jsonDeserialize["response"]["groups"][0])
+                    if (element.Key == "name")
+                        post.groupName = Convert.ToString(jsonDeserialize["response"]["groups"][0]["name"]);
+            }
             foreach(var element in jsonDeserialize["response"]["items"][0])
             {
                 if (element.Key == "text")

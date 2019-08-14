@@ -1,6 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "Main";
+	ViewBag.Title = "Main";
 }
-<a href="@ViewBag.code" style="padding:0 50% 0 45%;">VKAuthorize</a>
-
+<div class="text-center"	>
+	<a href="@ViewBag.code">VKAuthorize</a>
+	@Html.ActionLink("Pikabu", "RssPublications")
+	@Html.ActionLink("TuTBy", "RssTutBy")
+</div>

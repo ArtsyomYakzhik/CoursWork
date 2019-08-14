@@ -1,13 +1,8 @@
 ﻿
 @{
-				/**/
-
-				ViewBag.Title = "VK";
+	ViewBag.Title = "TutBy";
 }
 <div style="padding:0 50% 0 45%;">
-	<h2>VK</h2>
-	@Html.ActionLink("SubscribeToGroup", "SubscribeToVkGroup")
-	@Html.ActionLink("TuTBy", "RssTutBy")
 	@Html.ActionLink("Pikabu", "RssPublications")
 </div>
 @if (ViewBag.news != null)
@@ -25,12 +20,11 @@
 			</p>
 			@if (element.attachedPhoto.Count != 0)
 			{
-			foreach (var photo in element.attachedPhoto)
-			{
-			<img class="card-img-top" src="@photo" />
-			}
+				foreach (var photo in element.attachedPhoto)
+				{
+					<img class="card-img-top" src="@photo" />
+				}
 			}
 		</div>
 	}
 }
-

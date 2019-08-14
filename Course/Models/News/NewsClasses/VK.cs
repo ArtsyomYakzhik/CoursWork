@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using Leaf;
 using Leaf.xNet;
@@ -77,6 +78,7 @@ namespace Course.Models.News.NewsClasses
                     String.Format("https://api.vk.com/method/wall.get?extended=1&owner_id=-{0}&count=1&offset={1}&access_token={2}&v={3}"
                     , groupId, numberOfPost, accessToken, version));
                 result = JSONSerializer.getPost(postResponse.ToString());
+                Thread.Sleep(200);
                 return result;
             }
         }
