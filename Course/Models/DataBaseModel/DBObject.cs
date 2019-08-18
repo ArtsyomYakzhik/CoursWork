@@ -15,7 +15,7 @@ namespace CourseWork.Models.DataBaseModel
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=ForUsers;Username=postgres;Password=F8569668fenx");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=ForUsers;Username=postgres;Password=password");
         }
     }
 }
